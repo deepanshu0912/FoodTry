@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 25 30% 15%;
+
+    --card: 40 40% 99%;
+    --card-foreground: 25 30% 15%;
+
+    --popover: 40 40% 99%;
+    --popover-foreground: 25 30% 15%;
+
+    --primary: 28 85% 55%;
+    --primary-foreground: 40 40% 99%;
+
+    --secondary: 40 30% 94%;
+    --secondary-foreground: 25 30% 20%;
+
+    --muted: 40 20% 92%;
+    --muted-foreground: 25 15% 45%;
+
+    --accent: 15 75% 50%;
+    --accent-foreground: 40 40% 99%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 40% 99%;
+
+    --border: 40 25% 88%;
+    --input: 40 25% 88%;
+    --ring: 28 85% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --warm-cream: 40 33% 96%;
+    --rich-brown: 25 40% 20%;
+    --golden-amber: 38 92% 50%;
+    --sunset-orange: 20 90% 55%;
+    --sage-green: 140 25% 45%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --shadow-warm: 0 4px 20px -4px hsl(28 85% 55% / 0.15);
+    --shadow-elevated: 0 12px 40px -12px hsl(25 30% 15% / 0.2);
+    --gradient-warm: linear-gradient(135deg, hsl(28 85% 55%), hsl(20 90% 55%));
+    --gradient-hero: linear-gradient(180deg, hsl(40 33% 98%) 0%, hsl(40 40% 95%) 100%);
+  }
+
+  .dark {
+    --background: 25 25% 8%;
+    --foreground: 40 30% 95%;
+
+    --card: 25 20% 12%;
+    --card-foreground: 40 30% 95%;
+
+    --popover: 25 20% 12%;
+    --popover-foreground: 40 30% 95%;
+
+    --primary: 28 85% 55%;
+    --primary-foreground: 40 40% 99%;
+
+    --secondary: 25 15% 18%;
+    --secondary-foreground: 40 30% 90%;
+
+    --muted: 25 15% 20%;
+    --muted-foreground: 40 15% 60%;
+
+    --accent: 15 75% 50%;
+    --accent-foreground: 40 40% 99%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 40 40% 99%;
+
+    --border: 25 15% 22%;
+    --input: 25 15% 22%;
+    --ring: 28 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .shadow-warm {
+    box-shadow: var(--shadow-warm);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .text-gradient {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
