@@ -44,14 +44,12 @@ Notes: ${notes || "None"}
     `.trim();
 
     try {
-      const response = await fetch("http://localhost:3000/order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          vendor: vendorName,
-          item: orderDetails,
-        }),
-      });
+      fetch("https://foodiehub-backend-80v6.onrender.com/order", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data)
+});
+
 
       if (response.ok) {
         setSuccess(true);
