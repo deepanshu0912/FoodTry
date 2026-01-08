@@ -15,11 +15,12 @@ export default function Order() {
       }`,
     };
 
-    const res = await fetch("http://localhost:3000/order", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    const res = await fetch("https://foodiehub-backend-80v6.onrender.com/order", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data)
+});
+
 
     const msg = await res.text();
     alert(msg);
