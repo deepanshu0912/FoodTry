@@ -33,21 +33,21 @@ app.get("/", (req, res) => {
 app.post("/order", async (req, res) => {
   const { vendor, item } = req.body;
 
-  const message = `🧾 New Order\nVendor: ${vendor}\nItem: ${item}`;
-
   try {
-    await transporter.sendMail({
-      from: EMAIL,
-      to: EMAIL,
+    const response = await resend.emails.send({
+      from: "FoodieHub <onboarding@resend.dev>",
+      to: ["dbissu2511@gmail.com"],
       subject: "New Order Received",
-      text: message,
+      text: `🧾 New Order\nVendor: ${vendor}\nItem: ${item}`,
     });
 
-    res.send("✅ Order received & email sent!");
+    console.log("✅ Email sent:", response);
+    res.send("Order received & email sent!");
   } catch (err) {
-    console.error(err);
-    res.send("❌ Error sending email");
+    console.error("❌ Email error:", err);
+    res.status(500).send("Error sending email");
   }
 });
+
 
 app.listen(3000, () => console.log("🚀 Server running on port 3000"));
