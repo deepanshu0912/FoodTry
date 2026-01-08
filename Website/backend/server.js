@@ -10,9 +10,15 @@ const EMAIL = "dbissu2511@gmail.com";
 const EMAIL_PASS = "lqeilcldqephvuhf";
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: { user: EMAIL, pass: EMAIL_PASS },
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: EMAIL,
+    pass: EMAIL_PASS,
+  },
 });
+
 
 app.get("/", (req, res) => {
   res.send("Backend is running");
