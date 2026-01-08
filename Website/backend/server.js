@@ -17,7 +17,11 @@ const transporter = nodemailer.createTransport({
     user: EMAIL,
     pass: EMAIL_PASS,
   },
+  connectionTimeout: 20000,
+  greetingTimeout: 20000,
+  socketTimeout: 20000,
 });
+
 
 
 app.get("/", (req, res) => {
